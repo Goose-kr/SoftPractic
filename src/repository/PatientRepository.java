@@ -10,7 +10,7 @@ public interface PatientRepository {
 
     Set<Patient> getAllPatient();
 
-    void remove(String name);
+    void remove(Patient patient);
 
 
     //DoctorRepository saveDoc(DoctorRepository doctor);

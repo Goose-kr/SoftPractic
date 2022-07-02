@@ -36,7 +36,7 @@ public class PatientCreateExecutor extends AbstractExecutor {
         var newPatient = new Patient(patientName);
         patientRepository.savePatient(newPatient);
 
-        System.out.println(newPatient.getUniqueKey());
+        System.out.println(newPatient.getIdCounter());
         System.out.println("Patient creeted");
         return 1;
     }

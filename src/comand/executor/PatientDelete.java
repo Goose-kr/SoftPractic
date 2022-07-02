@@ -21,10 +21,10 @@ public class PatientDelete extends AbstractExecutor {
 
         var patientIdToDelete = idArray[2];
 
-        Optional<Patient> patientToDelete = findPatient(patientIdToDelete);
+        Optional<Patient> patientToDelete = findPatient(Integer.parseInt((patientIdToDelete)));
 
         if (patientToDelete.isPresent()) {
-            patientRepository.remove(patientToDelete.get().toString());
+            patientRepository.remove(patientToDelete.get());
 
             System.out.println("Пациент удален!");
         } else {

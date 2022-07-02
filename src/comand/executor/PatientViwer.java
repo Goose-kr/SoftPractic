@@ -22,7 +22,7 @@ public class PatientViwer extends AbstractExecutor{
 
         for (Patient patient : patientRepository.getAllPatient()){
             System.out.printf("ID: \"%s\". Имя: \"%s\". Дата регистрации: %s %n ",
-                    patient.getUniqueKey(),
+                    patient.getIdCounter(),
                     patient.getName(),
                     patient.getCreationDate());
         }

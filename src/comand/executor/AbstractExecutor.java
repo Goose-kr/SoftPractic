@@ -11,9 +11,9 @@ public abstract class AbstractExecutor implements Executor {
     protected final PatientRepository patientRepository = PatientRepositoryImpl.getSingleton();
 
 
-    protected Optional<Patient> findPatient(String patientId) {
+    protected Optional<Patient> findPatient(int patientId) {
         for (Patient patient : patientRepository.getAllPatient()) {
-            if (patient.getUniqueKey().equals(patientId)) {
+            if (patient.getIdCounter() == patientId) {
                 return Optional.of(patient);
             }
         }
