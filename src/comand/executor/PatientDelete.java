@@ -26,9 +26,9 @@ public class PatientDelete extends AbstractExecutor {
         if (patientToDelete.isPresent()) {
             patientRepository.remove(patientToDelete.get());
 
-            System.out.println("Пациент удален!");
+            System.out.println("Patient deleted!");
         } else {
-            System.out.println("Пациент не найден!");
+            System.out.println("Patient not founded!");
         }
         return 1;
     }

@@ -23,7 +23,7 @@ public class PatientCreateExecutor extends AbstractExecutor {
         var wordsArray = command.split(" ");
 
         var patientName = wordsArray[2];
-
+        //var doctorID = wordsArray[3];
 
         /*StringBuilder fioSb = new StringBuilder();
         for (int i = 3; i < words.length; i++){

@@ -15,10 +15,10 @@ public class Authentication {
         Scanner s = new Scanner(System.in);
         for (int count = 3; count > 0 && !isLoginSuccess; count--) {
 
-            System.out.println("Логин:");
+            System.out.println("Login:");
             var login = s.nextLine();
 
-            System.out.println("Пароль:");
+            System.out.println("Password:");
             var password = s.nextLine();
 
             if (login.equals(LOGIN) && password.equals(PASSWORD)) {

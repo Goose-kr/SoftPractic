@@ -23,7 +23,7 @@ public class PatientRepositoryImpl implements PatientRepository {
     @Override
     public void savePatient(Patient patient) {
         PATIENTS.add(patient);
-        patient.setIdCounter(PATIENTS.hashCode());
+        patient.setIdCounter();
     }
 
     @Override
@@ -36,6 +36,12 @@ public class PatientRepositoryImpl implements PatientRepository {
         PATIENTS.remove(patient);
     }
 
+    @Override
+    public void updateName(Patient patient, String name) {
+        PATIENTS.remove(patient);
+        patient.setName(name);
+        PATIENTS.add(patient);
+    }
 
 
     //public Patient savePatient(Patient patient){

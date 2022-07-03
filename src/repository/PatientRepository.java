@@ -11,6 +11,7 @@ public interface PatientRepository {
     Set<Patient> getAllPatient();
 
     void remove(Patient patient);
+    void updateName(Patient patient, String name);
 
 
     //DoctorRepository saveDoc(DoctorRepository doctor);

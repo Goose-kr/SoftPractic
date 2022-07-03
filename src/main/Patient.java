@@ -1,30 +1,42 @@
 package main;
 
+import java.text.SimpleDateFormat;
 import java.time.Instant;
+import java.util.Date;
 import java.util.Objects;
-import java.util.UUID;
 
 public class Patient {
-    private final String name;
-    private int id;
-    private final UUID uniqueKey = UUID.randomUUID();
-    private int idCounter = 0;
+    private String name;
+    //private int parentDoctor;
+    private String id = generateID();
+    private static int idCounter = 0;
+    private int id1 = Integer.parseInt(id);
 
 
-    public synchronized String createID(){
-        return String.valueOf(idCounter++);
+    public static synchronized String generateID(){
+        return (String.valueOf(idCounter++));
     }
 
-    private final Instant creationDate;
+
+
+    private final String creationDate;
     private Instant updateDate;
 
     public Patient(String name) {
         this.name = name;
-        creationDate = Instant.now();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
+        creationDate = formatter.format(Date.from(Instant.now()));
+       // this.parentDoctor = parentDoctor;
     }
     // public String getId(){
     //     return id;
     //}
+
+
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getName() {
 
@@ -32,11 +44,11 @@ public class Patient {
     }
 
     public int getIdCounter() {
-        return idCounter;
+        return id1;
     }
 
-    public void setIdCounter(int idCounter) {
-        this.idCounter = idCounter;
+    public void setIdCounter() {
+        this.id = id;
     }
 
     /* public void setId(int id){
@@ -49,11 +61,13 @@ public class Patient {
 
 
 
+/*
     public UUID getUniqueKey() {
         return uniqueKey;
     }
+*/
 
-    public Instant getCreationDate() {
+    public String getCreationDate() {
 
         return creationDate;
     }
@@ -63,11 +77,11 @@ public class Patient {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Patient patient = (Patient) o;
-        return Objects.equals(creationDate, patient.creationDate);
+        return Objects.equals(creationDate, patient.creationDate) && Objects.equals(id1, patient.id1);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(creationDate);
+        return Objects.hash(creationDate, id1);
     }
 }

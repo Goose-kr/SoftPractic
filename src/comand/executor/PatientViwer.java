@@ -4,6 +4,7 @@ import comand.CommandType;
 import main.Patient;
 import repository.PatientRepository;
 
+import java.util.Optional;
 import java.util.Set;
 
 public class PatientViwer extends AbstractExecutor{
@@ -19,9 +20,8 @@ public class PatientViwer extends AbstractExecutor{
 
 
     private int viewPatient(String command){
-
-        for (Patient patient : patientRepository.getAllPatient()){
-            System.out.printf("ID: \"%s\". Имя: \"%s\". Дата регистрации: %s %n ",
+        for (Patient patient : patientRepository.getAllPatient()) {
+            System.out.printf("ID: \"%s\". Name: \"%s\". Date registration: %s %n ",
                     patient.getIdCounter(),
                     patient.getName(),
                     patient.getCreationDate());

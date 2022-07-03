@@ -11,9 +11,10 @@ public class Main {
 
         int code = Authentication.authenticate();
         if (code == 0) {
-            System.out.println("Успешно");
+            System.out.println("Successfully: \n Command List: \n create Patient (Name) \n create Doctor (First name,Last name, specialization) \n create Admission(patientId, doctorId, date) \n" +
+                    " delete Patient (patientId) \n update Patient (patientID newName) \n update Admission (admissionId newStatus) \n View All Patients\n View All Doctors \n View All Admission (patientID)");
         } else {
-            System.out.println("Не успешно");
+            System.out.println("Failed");
         }
 
         CommandReader.startReadCommand();
